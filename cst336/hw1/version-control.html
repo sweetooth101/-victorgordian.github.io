@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+  <title>HW1 – Version Control</title>
+</head>
+<body>
+  <header>
+    <h1>Version Control with Git</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="agile-waterfall.html">Agile vs Waterfall</a>
+      <a href="version-control.html" class="active">Version Control</a>
+      <a href="testing.html">Testing & CI/CD</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <div>
+        <div class="gitquestion">
+            <h2>Why Git?</h2>
+            <img src="1color-orange-lightbg@2x.png" alt="">
+        </div>
+
+    <p>
+      Git is a powerful version control tool used in modern software development to manage code history, support teamwork, and maintain multiple versions of a project. By storing changes locally
+       and remotely, it ensures that work is never lost and can easily be shared or rolled back.
+    </p>
+
+    <h3>Common commands</h3>
+    <div class="git-commands">
+       <ul>
+        <li><code>git clone &lt;url&gt;</code> – copy a remote repo</li>
+        <li><code>git checkout -b feature/login</code> – new branch</li>
+        <li><code>git add .</code> → <code>git commit -m "msg"</code> → <code>git push</code></li>
+        <li><code>git pull</code> – sync from remote</li>
+        <li><code>git merge main</code> – merge another branch</li>
+      </ul>
+    </div>
+
+   
+
+    <h3>Branch strategy</h3>
+    <p>Keep <code>main</code> releasable, use short-lived feature branches, and open pull requests with code review.</p>
+    </div>
+ 
+  </main>
+
+  <footer>
+    <p>Homework 1 • CST336 • © Gordian</p>
+    <img src="logo.jpg" alt="Logo" class="footer-logo" />
+  </footer>
+</body>
+</html>

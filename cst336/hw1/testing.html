@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+  <title>HW1 – Testing & CI/CD</title>
+</head>
+<body>
+  <header>
+    <h1>Testing & CI/CD</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="agile-waterfall.html">Agile vs Waterfall</a>
+      <a href="version-control.html">Version Control</a>
+      <a href="testing.html" class="active">Testing & CI/CD</a>
+    </nav>
+  </header>
+
+  <main class="main page-testing">
+    <p class="intro">
+      Modern software combines layered testing with automation to ship changes quickly without breaking
+      existing features. Tests validate behavior, while CI/CD pipelines build, test, and deploy every change consistently.
+    </p>
+
+    <div class="two-col">
+      <section>
+        <h2>Types of Tests</h2>
+        <ul>
+          <li><strong>Unit</strong> — tests a single function or module</li>
+          <li><strong>Integration</strong> — tests multiple components working together</li>
+          <li><strong>E2E (End-to-End)</strong> — simulates a real user flow</li>
+          <li><strong>Regression</strong> — ensures new changes don’t break existing features</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>CI/CD</h2>
+        <p><strong>CI (Continuous Integration)</strong> — automatically builds and runs tests on every change pushed to the repo.</p>
+        <p><strong>CD (Continuous Delivery/Deployment)</strong> — automatically releases tested builds to staging or production.</p>
+        <div class="pipeline"> <span>Code</span> → <span>Build</span> → <span>Test</span> → <span>Deploy</span> </div>
+      </section>
+    </div>
+
+    <div class="note-box">
+      <h3>Benefits</h3>
+      <ul>
+        <li>Find bugs early</li>
+        <li>Repeatable, reliable deployments</li>
+        <li>Faster feedback for developers and stakeholders</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Homework 1 • CST336 • © Gordian</p>
+    <img src="logo.jpg" alt="CSUMB logo" class="footer-logo" />
+  </footer>
+</body>
+</html>
