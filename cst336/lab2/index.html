@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Guess a Number </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+
+    <header class="wrap">
+        <h1>Guess the Number!</h1>
+        <h2>Guess a number between 1 and 99 in seven attempts!</h2>
+    </header>
+
+    <main class="wrap card">
+        <div class="controls">
+        <label for="playerGuess">Enter a guess:</label>
+        <input type="number" id="playerGuess" min="1" max="99" />
+        <button id="guessBtn">Guess</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+        </div>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <div class="status">
+        <div>Previous guesses: <span id="guesses"></span></div>
+        <div id="attemptsLeft">Attempts left: 7</div>
+        <div id="score">Wins: <span id="wins">0</span> • Losses: <span id="losses">0</span></div>
+        </div>
+        <script src="js/script.js"></script>   
+    </body>
+</html>
