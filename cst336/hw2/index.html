@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>US Geography Quiz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+<body class="text-center">
+  <header class="bg-info p-5 mb-4">
+    <h1 class="m-0">US Geography Quiz</h1>
+  </header>
+
+  <main class="container" style="max-width: 700px;">
+
+    <!-- First Question -->
+    <h3><span id="markImg1"></span>What is the capital of California?</h3>
+    <input id="q1" class="form-control" placeholder="Type your answer">
+    <div id="q1Feedback"></div>
+    <br>
+
+    <!-- Second Question -->
+    <h3><span id="markImg2"></span>What is the longest river in the United States?</h3>
+    <select id="q2" class="form-select">
+      <option value="">Select one</option>
+      <option>Colorado River</option>
+      <option>Mississippi River</option>
+      <option>Missouri River</option>
+      <option>Yukon River</option>
+    </select>
+    <div id="q2Feedback"></div>
+    <br>
+
+    <!-- Third Question -->
+    <h3><span id="markImg3"></span>What presidents are carved into Mount Rushmore?</h3>
+    <input type="checkbox" id="Jackson"> <label for="Jackson">A. Jackson</label>
+    <input type="checkbox" id="Franklin"> <label for="Franklin">B. Franklin</label>
+    <input type="checkbox" id="Jefferson"> <label for="Jefferson">T. Jefferson</label>
+    <input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T. Roosevelt</label>
+    <div id="q3Feedback"></div>
+    <br>
+
+    <!-- Fourth Question -->
+    <h3><span id="markImg4"></span>What is the smallest US state?</h3>
+    <div id="q4Choices">
+      <input type="radio" name="q4" id="me" value="Maine"> <label for="me">Maine</label>
+      <input type="radio" name="q4" id="ri" value="Rhode Island"> <label for="ri">Rhode Island</label>
+      <input type="radio" name="q4" id="md" value="Maryland"> <label for="md">Maryland</label>
+      <input type="radio" name="q4" id="de" value="Delaware"> <label for="de">Delaware</label>
+    </div>
+    <div id="q4Feedback"></div>
+    <br>
+    <!-- Fith Question-->
+    <h3><span id="markImg5"></span> 5) About how many miles is it from San Diego to Crescent City along the California coast?</h3>
+    <input id="q5" type="number" class="form-control" placeholder="Enter a number (e.g., 800)">
+    <div id="q5Feedback"></div>
+    <br>
+
+    <!-- Sixth Question -->
+    <h3><span id="markImg6"></span> 6) Which U.S. state borders the most other states?</h3>
+    <select id="q6" class="form-select">
+        <option value="">Select one</option>
+        <option>Alabama</option>
+        <option>Mississippi</option>
+        <option>Tennessee</option>
+        <option>Missouri</option>
+        <option>Colorado</option>
+    </select>
+    <div id="q6Feedback"></div>
+    <br>
+
+    <!-- Seven Question -->
+    <h3><span id="markImg7"></span> 7) Which state most recently gained a U.S. National Park?</h3>
+    <div>
+        <input type="radio" name="q7" id="q7-wv" value="West Virginia"> <label for="q7-wv">West Virginia</label>
+        <input type="radio" name="q7" id="q7-ut" value="Utah"> <label for="q7-ut">Utah</label>
+        <input type="radio" name="q7" id="q7-ca" value="California"> <label for="q7-ca">California</label>
+        <input type="radio" name="q7" id="q7-az" value="Arizona"> <label for="q7-az">Arizona</label>
+    </div>
+    <div id="q7Feedback"></div>
+    <br>
+
+    <!-- Eight Question -->
+    <h3><span id="markImg8"></span> 8) Which state was first to have a U.S. National Park?</h3>
+    <div>
+        <input type="radio" name="q8" id="q8-wy" value="Wyoming"> <label for="q8-wy">Wyoming</label>
+        <input type="radio" name="q8" id="q8-ca" value="California"> <label for="q8-ca">California</label>
+        <input type="radio" name="q8" id="q8-ny" value="New York"> <label for="q8-ny">New York</label>
+        <input type="radio" name="q8" id="q8-co" value="Colorado"> <label for="q8-co">Colorado</label>
+    </div>
+    <div id="q8Feedback"></div>
+    <br>
+
+    <!-- Nine Question -->
+    <h3><span id="markImg9"></span> 9) Which states share a border with Mexico? (Select all that apply)</h3>
+    <select id="q9" class="form-select" multiple size="6">
+        <option>California</option>
+        <option>Arizona</option>
+        <option>New Mexico</option>
+        <option>Texas</option>
+        <option>Louisiana</option>
+        <option>Oklahoma</option>
+        <option>Nevada</option>
+        <option>Utah</option>
+    </select>
+    <div id="q9Feedback"></div>
+    <br>
+
+    <!-- Tenth-->
+    <h3><span id="markImg10"></span> 10) What is the capital of New York?</h3>
+    <input id="q10" class="form-control" placeholder="Type your answer">
+    <div id="q10Feedback"></div>
+    <br>
+    <!-- Validation Feedback -->
+    <div id="validationFdbk" class="fw-semibold"></div>
+
+    <!-- Submit Button -->
+    <div class="d-grid col-6 mx-auto my-4">
+      <button class="btn btn-primary btn-lg" type="button">Submit Quiz</button>
+    </div>
+
+    <!-- Total Score -->
+    <h2 id="totalScore" class="text-info"></h2>
+    <div id="congratsMsg" class="mt-2"></div>
+    <div id="totalAttempts" class="mt-3"></div>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
