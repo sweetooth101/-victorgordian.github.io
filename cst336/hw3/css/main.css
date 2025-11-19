@@ -1,0 +1,67 @@
+
+body {
+    background: #050b18;
+}
+
+
+.container-main {
+    min-height: 100vh;
+}
+
+
+.header-title {
+    color: #7afcff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+
+.main-card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid #334155;
+}
+
+
+.form-label {
+    font-weight: 600;
+}
+
+#nameInput.is-invalid {
+    border-color: #dc3545;
+}
+
+
+#error {
+    min-height: 1.2rem;
+}
+
+
+#results {
+    margin-top: 1rem;
+}
+
+
+.character-card {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+
+.character-card .card-img-top {
+    height: 230px;
+}
+
+
+.character-card .card-title {
+    font-size: 1.05rem;
+}
+
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.search-list {
+    font-weight: 500;
+    color: #8be9fd;
+}
