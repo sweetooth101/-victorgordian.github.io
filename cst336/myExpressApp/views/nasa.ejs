@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+
+<body>
+    <h1>NASA Picture of the Day</h1>
+    <%- include('partials/nav.ejs') %>
+
+    <h2><%= data.title %></h2>
+    <p><%= data.date %></p>
+
+    <% if (data.media_type === "image") { %>
+        <img src="<%= data.url %>" style="width:600px">
+    <% } else { %>
+        <iframe src="<%= data.url %>" width="640" height="360"></iframe>
+    <% } %>
+
+    <p><%= data.explanation %></p>
+</body>
+</html>

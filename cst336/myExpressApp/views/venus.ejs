@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+
+<body>
+    <h1>The Solar System</h1>
+    <%- include('partials/nav.ejs') %>
+    <h2>Planet Venus</h2>
+    
+  <p><%= planetVenus.description %></p>
+
+
+  <img src="<%= planetVenus.image %>" style="width:400px">
+</body>
+</html>
