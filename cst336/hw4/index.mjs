@@ -8,8 +8,14 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async (req, res) => {
+  const unsplashKey = "YOUR_UNSPLASH_KEY";
+  const url = `https://api.unsplash.com/photos/random/?client_id=${unsplashKey}&query=dog`;
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  res.render("index", { image: data.urls.full });
 });
 
 
@@ -18,19 +24,32 @@ app.get("/fact", (req, res) => {
   res.render("fact", { fact });
 });
 
+
 app.get("/photo", async (req, res) => {
   const url = "https://dog.ceo/api/breeds/image/random";
+  const response = await fetch(url);
+  const data = await response.json();
 
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    res.render("photo", { imgUrl: data.message });
-  } catch (err) {
-    res.status(500).send("Could not load dog picture.");
-  }
+  res.render("photo", { dogImage: data.message });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Dog app running on port ${PORT}`);
+
+app.get("/breed", async (req, res) => {
+  const url = "https://dog.ceo/api/breeds/list/all";
+  const response = await fetch(url);
+  const data = await response.json();
+
+  const breeds = Object.keys(data.message);
+  const randomBreed = breeds[Math.floor(Math.random() * breeds.length)];
+
+  res.render("breed", { randomBreed });
+});
+
+app.get("/fun", (req, res) => {
+  const facts = [
+    dogFacts.random(),
+    dogFacts.random(),
+    dogFacts.random()
+  ];
+  res.render("fun", { facts });
 });

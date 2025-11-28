@@ -3,8 +3,14 @@
 <%- include("partials/head") %>
 <body>
 <%- include("partials/nav") %>
-<h1>Welcome to the Dog App 🐶</h1>
-<p>Click a page above to learn more!</p>
+<h1>3 Fun Dog Facts 🐕</h1>
+
+<ul>
+  <% facts.forEach(f => { %>
+    <li><%= f %></li>
+  <% }) %>
+</ul>
+
 <%- include("partials/footer") %>
 </body>
 </html>
