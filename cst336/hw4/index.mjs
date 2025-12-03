@@ -9,13 +9,10 @@ app.use(express.static("public"));
 
 
 app.get("/", async (req, res) => {
-  const unsplashKey = "YOUR_UNSPLASH_KEY";
-  const url = `https://api.unsplash.com/photos/random/?client_id=${unsplashKey}&query=dog`;
-
-  const response = await fetch(url);
-  const data = await response.json();
-
-  res.render("index", { image: data.urls.full });
+    const url = "https://dog.ceo/api/breeds/image/random";
+    const response = await fetch(url);
+    const data = await response.json();
+    res.render("index", { image: data.message });
 });
 
 
@@ -52,4 +49,9 @@ app.get("/fun", (req, res) => {
     dogFacts.random()
   ];
   res.render("fun", { facts });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
