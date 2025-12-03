@@ -9,14 +9,13 @@ app.use(express.static('public'));
 //for Express to get values using POST method
 app.use(express.urlencoded({extended:true}));
 
-//setting up database connection pool
-const pool = mysql.createPool({
-    host: "pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    user: "j8alii8je0itbz3s",
-    password: "mx2j1ow1hjs868nz",
-    database: "gvw1vu2tssczfoyu",
-    connectionLimit: 10,
-    waitForConnections: true
+//setting up database connection conn
+const conn = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT || 3306
 });
 
 //routes
@@ -30,8 +29,8 @@ app.get('/', async (req, res) => {
                        FROM q_quotes
                        ORDER BY category`;
 
-  const [authorRows]    = await pool.query(sqlAuthors);
-  const [categoryRows]  = await pool.query(sqlCategories);
+  const [authorRows]    = await conn.query(sqlAuthors);
+  const [categoryRows]  = await conn.query(sqlCategories);
 
   res.render("index", { 
     "authors": authorRows,
@@ -41,17 +40,13 @@ app.get('/', async (req, res) => {
 
 app.get("/dbTest", async(req, res) => {
    try {
-        const [rows] = await pool.query("SELECT CURDATE()");
+        const [rows] = await conn.query("SELECT CURDATE()");
         res.send(rows);
     } catch (err) {
         console.error("Database error:", err);
         res.status(500).send("Database error");
     }
 });//dbTest
-
-app.listen(3000, ()=>{
-    console.log("Express server running")
-})
 
 app.get('/searchByKeyword', async (req, res) =>{
     let keyword = req.query.keyword;
@@ -60,7 +55,7 @@ app.get('/searchByKeyword', async (req, res) =>{
                 NATURAL JOIN q_authors
                 WHERE quote LIKE ?`;
     let sqlParams = [`%${keyword}%`];
-    const [rows] = await pool.query(sql, sqlParams);
+    const [rows] = await conn.query(sql, sqlParams);
     res.render("results", {"quotes":rows}); 
 });
 
@@ -74,7 +69,7 @@ app.get('/searchByAuthor', async (req, res) => {
 
   let sqlParams = [userAuthorId];
 
-  const [rows] = await pool.query(sql, sqlParams);
+  const [rows] = await conn.query(sql, sqlParams);
 
   res.render("results", { "quotes": rows });
 });
@@ -84,7 +79,7 @@ let authorId = req.params.id;
 let sql = `SELECT *
 FROM q_authors
 WHERE authorId = ?`;
-let [rows] = await pool.query(sql, [authorId]);
+let [rows] = await conn.query(sql, [authorId]);
 res.send(rows)
 });
 
@@ -98,7 +93,7 @@ app.get('/searchByCategory', async (req, res) => {
 
   let sqlParams = [category];
 
-  const [rows] = await pool.query(sql, sqlParams);
+  const [rows] = await conn.query(sql, sqlParams);
 
   res.render("results", { "quotes": rows });
 });
@@ -114,7 +109,13 @@ app.get('/searchByLikes', async (req, res) => {
 
   let sqlParams = [minLikes, maxLikes];
 
-  const [rows] = await pool.query(sql, sqlParams);
+  const [rows] = await conn.query(sql, sqlParams);
 
   res.render("results", { "quotes": rows });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
