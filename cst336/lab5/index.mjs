@@ -9,14 +9,21 @@ app.use(express.static('public'));
 //for Express to get values using POST method
 app.use(express.urlencoded({extended:true}));
 
-//setting up database connection conn
-const conn = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT || 3306
-});
+let conn;
+
+if (process.env.JAWSDB_URL) {
+  console.log("🔌 Using Heroku JAWSDB connection");
+  conn = mysql.createPool(process.env.JAWSDB_URL);
+} else {
+  console.log("💻 Using local DB connection");
+  conn = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT || 3306
+  });
+}
 
 //routes
 app.get('/', async (req, res) => {
