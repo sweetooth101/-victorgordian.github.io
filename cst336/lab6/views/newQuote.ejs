@@ -1,0 +1,35 @@
+<body>
+
+<h1>Add New Quote</h1>
+
+<% if (typeof message !== "undefined") { %>
+    <p style="color: green;"><%= message %></p>
+<% } %>
+
+<form action="/quote/new" method="POST">
+
+    <label>Quote:</label><br>
+    <textarea name="quote" rows="4" cols="50" required></textarea><br><br>
+
+    <label>Author:</label><br>
+    <select name="authorId" required>
+        <% authors.forEach(a => { %>
+            <option value="<%= a.authorId %>">
+                <%= a.firstName %> <%= a.lastName %>
+            </option>
+        <% }) %>
+    </select><br><br>
+
+    <label>Category:</label><br>
+    <select name="category" required>
+        <% categories.forEach(c => { %>
+            <option value="<%= c.category %>"><%= c.category %></option>
+        <% }) %>
+    </select><br><br>
+
+    <label>Likes:</label><br>
+    <input type="number" name="likes" required><br><br>
+
+    <input type="submit" value="Add Quote">
+
+</form>

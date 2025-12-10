@@ -1,0 +1,18 @@
+<body>
+
+<h1>Edit Quote</h1>
+
+<form action="/quote/update" method="POST">
+
+    <!-- Quote ID must be included (hidden) so update works -->
+    <input type="hidden" name="quoteId" value="<%= quote.quoteId %>">
+
+    <label>Quote:</label><br>
+    <textarea name="quote" rows="4" cols="50"><%= quote.quote %></textarea>
+    <br><br>
+
+    <input type="submit" value="Update Quote">
+
+</form>
+
+</body>
