@@ -228,8 +228,9 @@ app.get("/dbTest", async(req, res) => {
     }
 });//dbTest
 
-app.listen(3000, ()=>{
-    console.log("Express server running")
-})
+const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+    console.log(`Express server running on port ${PORT}`);
+});
  
